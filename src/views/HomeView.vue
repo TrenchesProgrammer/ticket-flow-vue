@@ -1,0 +1,129 @@
+<script setup>
+import AutoScroll from '../components/AutoScroll.vue'
+import TestimonialCard from '../components/TestimonialCard.vue'
+import Faq from '../components/Faq.vue'
+import Footer from '../components/Footer.vue'
+</script>
+<template>
+  <div class="py-10">
+    <section class=" flex flex-col py-10">
+      <div class="relative">
+        <div
+          class="absolute top-30 right-30 w-16 h-16 bg-green-200 rounded-full opacity-50 blur-sm"
+        ></div>
+        <h1 class="font-bold text-3xl md:text-4xl text-center">
+          ONE SYSTEM. EVERY TICKET. <br />
+          <span class="text-green-500">ZERO</span> STRESS.
+        </h1>
+        <div class="w-full flex justify-center mt-4 px-4">
+          <p class="max-w-2xl text-center">
+            Create, track, and resolve tickets in one simple dashboard. Stay organized with
+            real-time updates, clear status indicators, and seamless control of every request.
+          </p>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row justify-center w-full px-4 items-center gap-5 mt-10"
+        >
+          <router-link to="/signup" class="bg-green-400 text-center p-4 w-full sm:w-48 rounded-full">
+            Sign Up
+          </router-link>
+          <router-link
+            to="/login"
+            class="border text-center border-black p-4 w-full sm:w-48 rounded-full"
+          >
+            Login
+        </router-link>
+        </div>
+        <img class="w-full mt-8" src="/wave.svg" alt="Wave" />
+      </div>
+    </section>
+
+    <section class="flex flex-col py-10">
+      <h2 class="font-bellefair text-2xl text-center">Trusted by</h2>
+      <AutoScroll />
+    </section>
+
+    <section class="flex flex-col gap-5 items-center padding-container">
+      <h2 class="text-2xl text-center">Everything you need in one app</h2>
+      <div class="flex flex-col md:flex-row gap-5 w-full">
+        <div
+          class="w-full md:w-3/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+        >
+          <div class="flex-1">
+            <h3>Insights & Analytics</h3>
+            <p>
+              Make informed decisions with visual analytics that show productivity and progress.
+            </p>
+          </div>
+          <img
+            class="w-full sm:w-1/3 h-auto rounded-lg"
+            src="/analytics.png"
+            alt="analytics"
+          />
+        </div>
+        <div
+          class="w-full md:w-2/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+        >
+          <div class="flex-1">
+            <h3>Task Management</h3>
+            <p>
+              Organize and prioritize your team’s work with a clear, shared view of all tickets.
+            </p>
+          </div>
+          <img
+            class="w-full sm:w-1/3 h-auto rounded-lg"
+            src="/analytics.png"
+            alt="analytics"
+         
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-5 w-full">
+        <div
+          class="w-full md:w-2/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+        >
+          <div class="flex-1">
+            <h3>Real-Time Updates</h3>
+            <p>Stay in the loop with instant notifications and a live activity feed.</p>
+          </div>
+          <img
+            class="w-full sm:w-1/3 h-auto rounded-lg"
+            src="/analytics.png"
+            alt="analytics"
+          
+          />
+        </div>
+        <div
+          class="w-full md:w-3/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+        >
+          <div class="flex-1">
+            <h3>Customizable Workflows</h3>
+            <p>Adapt the system to your team’s unique process with custom fields and statuses.</p>
+          </div>
+          <img
+            class="w-full sm:w-1/3 h-auto rounded-lg"
+            src="/analytics.png"
+            alt="analytics"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="flex items-center padding-container my-10">
+      <Faq />
+    </section>
+
+    <section class="mt-5">
+      <h2 class="text-2xl text-center">What Our Users Say</h2>
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center p-4">
+        <TestimonialCard />
+        <TestimonialCard />
+        <TestimonialCard />
+      </div>
+    </section>
+    <footer class="padding-container">
+      <Footer />
+    </footer>
+  </div>
+</template>
