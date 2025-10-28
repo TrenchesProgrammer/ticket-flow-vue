@@ -43,7 +43,7 @@ import Footer from '../components/Footer.vue'
       <AutoScroll />
     </section>
 
-    <section class="flex flex-col gap-5 items-center padding-container">
+    <section class="flex flex-col gap-5 mt-7 items-center padding-container">
       <h2 class="text-2xl text-center">Everything you need in one app</h2>
       <div class="flex flex-col md:flex-row gap-5 w-full">
         <div
@@ -91,7 +91,7 @@ import Footer from '../components/Footer.vue'
       </div>
     </section>
 
-    <section class="flex items-center padding-container my-10">
+    <section class="flex items-center padding-container my-15">
       <Faq />
     </section>
 
