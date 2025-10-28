@@ -47,7 +47,7 @@ import Footer from '../components/Footer.vue'
       <h2 class="text-2xl text-center">Everything you need in one app</h2>
       <div class="flex flex-col md:flex-row gap-5 w-full">
         <div
-          class="w-full md:w-3/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+          class="w-full md:w-1/2 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
         >
           <div class="flex-1">
             <h3>Insights & Analytics</h3>
@@ -55,14 +55,10 @@ import Footer from '../components/Footer.vue'
               Make informed decisions with visual analytics that show productivity and progress.
             </p>
           </div>
-          <img
-            class="w-full sm:w-1/3 h-auto rounded-lg"
-            src="/analytics.png"
-            alt="analytics"
-          />
+
         </div>
         <div
-          class="w-full md:w-2/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
+          class="w-full md:w-1/2 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
         >
           <div class="flex-1">
             <h3>Task Management</h3>
@@ -70,12 +66,7 @@ import Footer from '../components/Footer.vue'
               Organize and prioritize your team’s work with a clear, shared view of all tickets.
             </p>
           </div>
-          <img
-            class="w-full sm:w-1/3 h-auto rounded-lg"
-            src="/analytics.png"
-            alt="analytics"
-         
-          />
+
         </div>
       </div>
 
@@ -87,12 +78,7 @@ import Footer from '../components/Footer.vue'
             <h3>Real-Time Updates</h3>
             <p>Stay in the loop with instant notifications and a live activity feed.</p>
           </div>
-          <img
-            class="w-full sm:w-1/3 h-auto rounded-lg"
-            src="/analytics.png"
-            alt="analytics"
-          
-          />
+     
         </div>
         <div
           class="w-full md:w-3/5 border border-green-200 flex flex-col sm:flex-row gap-5 p-5 rounded-2xl"
@@ -101,11 +87,6 @@ import Footer from '../components/Footer.vue'
             <h3>Customizable Workflows</h3>
             <p>Adapt the system to your team’s unique process with custom fields and statuses.</p>
           </div>
-          <img
-            class="w-full sm:w-1/3 h-auto rounded-lg"
-            src="/analytics.png"
-            alt="analytics"
-          />
         </div>
       </div>
     </section>
@@ -122,7 +103,7 @@ import Footer from '../components/Footer.vue'
         <TestimonialCard />
       </div>
     </section>
-    <footer class="padding-container">
+    <footer class="padding-container mt-15">
       <Footer />
     </footer>
   </div>
