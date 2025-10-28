@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { signup } from '../utils/auth';
+import { useToast } from 'vue-toastification';
 
 const router = useRouter();
+const toast = useToast();
 
 const fullname = ref('');
 const email = ref('');
@@ -45,10 +47,11 @@ const handleSubmit = () => {
   const result = signup(fullname.value, email.value, password.value);
 
   if (!result.success) {
-    errors.value.general = result.message;
+    toast.error(result.message);
     return;
   }
 
+  toast.success(result.message);
   router.push('/dashboard');
 };
 </script>
@@ -125,9 +128,7 @@ const handleSubmit = () => {
             <p v-if="errors.confirmPassword" class="text-red-600 text-xs pt-1">{{ errors.confirmPassword }}</p>
           </div>
         </div>
-
         <p v-if="errors.general" class="text-red-600 text-sm text-center">{{ errors.general }}</p>
-
         <div>
           <button
             type="submit"

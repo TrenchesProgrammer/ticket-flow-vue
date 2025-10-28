@@ -1,48 +1,69 @@
-# ticket-flow-vue
+# TicketFlow - Vue.js Implementation
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the Vue.js version of the TicketFlow application, a multi-framework ticket management web app.
 
-## Recommended IDE Setup
+## Frameworks and Libraries
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+*   **Framework:** [Vue.js](https://vuejs.org/)
+*   **Bundler:** [Vite](https://vitejs.dev/)
+*   **Routing:** [Vue Router](https://router.vuejs.org/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Toast Notifications:** [Vue Toastification](https://vue-toastification.maronato.dev/)
+*   **Icons:** [Iconify](https://iconify.design/)
+*   **Unique IDs:** [UUID](https://github.com/uuidjs/uuid)
 
-## Recommended Browser Setup
+## Setup and Execution
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+1.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+2.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+3.  **Build for production:**
+    ```sh
+    npm run build
+    ```
 
-## Type Support for `.vue` Imports in TS
+## Switching Between Frameworks
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+This repository contains only the Vue.js implementation. To switch to other frameworks (React, Twig), you will need to check out their respective repositories.
 
-## Customize configuration
+## UI Components and State Structure
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Components
 
-## Project Setup
+*   `Navbar.vue`: The main navigation bar, which is responsive and shows different links based on authentication status.
+*   `Footer.vue`: The footer component.
+*   `HomeView.vue`: The landing page.
+*   `LoginView.vue`: The login page.
+*   `SignupView.vue`: The signup page.
+*   `DashboardView.vue`: The dashboard page, which shows ticket statistics.
+*   `TicketsView.vue`: The main page for managing tickets (CRUD).
+*   `TicketModal.vue`: A modal for creating new tickets.
+*   `TicketDetailsModal.vue`: A modal for viewing and editing existing tickets.
+*   `ConfirmationModal.vue`: A modal for confirming ticket deletion.
+*   `TestimonialCard.vue`: A card for displaying user testimonials.
+*   `Faq.vue`: A component for the FAQ section.
+*   `FaqItem.vue`: A single FAQ item.
+*   `AutoScroll.vue`: A component for auto-scrolling content.
 
-```sh
-npm install
-```
+### State Management
 
-### Compile and Hot-Reload for Development
+The application uses a simple form of state management based on `localStorage`.
 
-```sh
-npm run dev
-```
+*   **Authentication:** A session token is stored in `localStorage` under the key `ticketapp_session`. The `utils/auth.ts` file contains functions for logging in, signing up, logging out, and getting the current session.
+*   **Tickets:** Tickets are stored in `localStorage` under the key `ticketapp_tickets`. The `TicketsView.vue` component is responsible for all CRUD operations on tickets.
 
-### Type-Check, Compile and Minify for Production
+## Accessibility
 
-```sh
-npm run build
-```
+*   Semantic HTML is used where possible.
+*   Buttons and links have clear text.
+*   Inputs have labels (although some are screen-reader only).
+*   Focus states are visible on interactive elements.
 
-### Lint with [ESLint](https://eslint.org/)
+## Test User Credentials
 
-```sh
-npm run lint
-```
+You can sign up with any email and password. The application uses `localStorage` for user and session management, so no real authentication is performed.

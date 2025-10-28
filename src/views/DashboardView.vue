@@ -23,7 +23,7 @@ onMounted(() => {
 const ticketCounts = computed(() => ({
   total: tickets.value.length,
   open: tickets.value.filter((t) => t.status === 'open').length,
-  in_progress: tickets.value.filter((t) => t.status === 'in_progress').length,
+  in_progress: tickets.value.filter((t) => t.status === 'In progress').length,
   closed: tickets.value.filter((t) => t.status === 'closed').length
 }))
 
@@ -33,11 +33,7 @@ const recentTickets = computed(() =>
     .slice(0, 5)
 )
 
-const statusColors: { [key: string]: string } = {
-  open: 'bg-green-200 text-green-800',
-  in_progress: 'bg-amber-200 text-amber-800',
-  closed: 'bg-gray-200 text-gray-800'
-}
+
 </script>
 
 <template>
@@ -90,11 +86,14 @@ const statusColors: { [key: string]: string } = {
               <p class="text-sm text-gray-500">{{ ticket.date }}</p>
             </div>
             <span
-              :class="`px-3 py-1 rounded-full text-sm ${
-                statusColors[ticket.status] || statusColors.closed
-              }`"
+              :class="[
+                'px-3 py-1 rounded-full text-sm',
+                { 'bg-green-200 text-green-800': ticket.status === 'open' },
+                { 'bg-amber-200 text-amber-800': ticket.status === 'In progress' },
+                { 'bg-gray-200 text-gray-800': ticket.status === 'closed' },
+              ]"
             >
-              {{ ticket.status.replace('_', ' ') }}
+              {{ ticket.status }}
             </span>
           </li>
         </template>

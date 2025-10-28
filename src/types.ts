@@ -8,6 +8,6 @@ export interface Ticket {
     user: string;
     title: string;
     description: string;
-    status: 'open' | 'in_progress' | 'closed';
+    status: 'open' | 'In progress' | 'closed';
     date: string;
 }

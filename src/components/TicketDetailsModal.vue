@@ -39,9 +39,10 @@ const handleDelete = () => {
             v-model="editableTicket.status"
             id="status"
             class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :disabled="editableTicket.status === 'closed'"
           >
             <option value="open">Open</option>
-            <option value="in_progress">In Progress</option>
+            <option value="In progress">In Progress</option>
             <option value="closed">Closed</option>
           </select>
         </div>
@@ -53,12 +54,14 @@ const handleDelete = () => {
         <button
           @click="handleDelete"
           class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+          :disabled="editableTicket.status === 'closed'"
         >
           Delete
         </button>
         <button
           @click="handleUpdate"
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          :disabled="editableTicket.status === 'closed'"
         >
           Save & Close
         </button>

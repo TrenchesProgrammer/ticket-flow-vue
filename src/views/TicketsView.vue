@@ -7,8 +7,10 @@ import TicketModal from '../components/TicketModal.vue'
 import TicketDetailsModal from '../components/TicketDetailsModal.vue'
 import ConfirmationModal from '../components/ConfirmationModal.vue'
 import type { Session, Ticket } from '../types'
+import { useToast } from 'vue-toastification'
 
 const router = useRouter()
+const toast = useToast()
 const session = ref<Session | null>(null)
 const tickets = ref<Ticket[]>([])
 const isModalOpen = ref(false)
@@ -30,7 +32,10 @@ onMounted(() => {
 })
 
 const handleAddTicket = (title: string, description: string) => {
-  if (!title.trim() || !description.trim()) return
+  if (!title.trim() || !description.trim()) {
+    toast.error('Title and description are required')
+    return
+  }
 
   const newTicket: Ticket = {
     id: uuidv4(),
@@ -44,6 +49,7 @@ const handleAddTicket = (title: string, description: string) => {
   const updated = [...tickets.value, newTicket]
   tickets.value = updated
   localStorage.setItem('ticketapp_tickets', JSON.stringify(updated))
+  toast.success('Ticket created successfully')
 }
 
 const handleUpdateTicket = (updatedTicket: Ticket) => {
@@ -53,6 +59,7 @@ const handleUpdateTicket = (updatedTicket: Ticket) => {
   tickets.value = updatedTickets
   localStorage.setItem('ticketapp_tickets', JSON.stringify(updatedTickets))
   selectedTicket.value = null
+  toast.success('Ticket updated successfully')
 }
 
 const handleDeleteTicket = (ticketId: string) => {
@@ -68,14 +75,11 @@ const confirmDelete = () => {
     selectedTicket.value = null // Close the details modal
     isConfirmModalOpen.value = false // Close the confirm modal
     ticketToDelete.value = null
+    toast.success('Ticket deleted successfully')
   }
 }
 
-const statusColors: { [key: string]: string } = {
-  open: 'bg-green-200 text-green-800',
-  in_progress: 'bg-amber-200 text-amber-800',
-  closed: 'bg-gray-200 text-gray-800'
-}
+
 </script>
 
 <template>
@@ -121,7 +125,12 @@ const statusColors: { [key: string]: string } = {
         </div>
         <div class="text-sm text-gray-500 mt-2">
           <span
-            :class="`px-2 py-1 rounded-full text-xs ${statusColors[ticket.status] || statusColors.closed}`"
+            :class="[
+              'px-2 py-1 rounded-full text-xs',
+              { 'bg-green-200 text-green-800': ticket.status === 'open' },
+              { 'bg-amber-200 text-amber-800': ticket.status === 'In progress' },
+              { 'bg-gray-200 text-gray-800': ticket.status === 'closed' },
+            ]"
           >
             {{ ticket.status }}
           </span>

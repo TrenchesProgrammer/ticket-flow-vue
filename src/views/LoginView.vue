@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { login } from '../utils/auth';
+import { useToast } from 'vue-toastification';
 
 const router = useRouter();
+const toast = useToast();
 
 const email = ref('');
 const password = ref('');
@@ -34,10 +36,11 @@ const handleSubmit = () => {
   const result = login(email.value, password.value);
 
   if (!result.success) {
-    errors.value.general = result.message;
+    toast.error(result.message);
     return;
   }
 
+  toast.success(result.message);
   router.push('/dashboard');
 };
 </script>
