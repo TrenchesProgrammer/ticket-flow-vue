@@ -1,7 +1,10 @@
+<script setup>
+  import { Icon } from '@iconify/vue'
+</script>
 <style>
-.footer-bg {
-  background: radial-gradient(circle at center, #81c784, #66bb6a, #4caf50, #43a047, #388e3c);
-}
+  .footer-bg {
+    background: radial-gradient(circle at center, #81c784, #66bb6a, #4caf50, #43a047, #388e3c);
+  }
 </style>
 
 <template>
@@ -17,12 +20,24 @@
     </button>
   </div>
 
-  <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+  <div class="flex flex-col mt-10 md:flex-row justify-between gap-6">
     <div>
       <h3 class="font-bold text-2xl">TICKET<span class="text-green-400">FLOW</span></h3>
       <p class="text-gray-500">Connecting people who help each other, no matter the distance.</p>
+      <div class="flex gap-4 mt-4">
+        <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-green-500">
+          <Icon icon="mdi:github" class="w-6 h-6"/>
+        </a>
+        <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-green-500">
+          <Icon icon="mdi:linkedin" class="w-6 h-6"/>
+        </a>
+        <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-green-500">
+          <Icon icon="mdi:twitter" class="w-6 h-6"/>
+        </a>
+      </div>
     </div>
-    <div class="flex gap-8">
+    <div class="flex flex-col gap-1 text-gray-500">
+      <p class="text-gray-800 font-bold">Quick Links</p>
       <router-link to="/" class="hover:text-green-500">Home</router-link>
       <router-link to="/tickets" class="hover:text-green-500">Tickets</router-link>
       <router-link to="/dashboard" class="hover:text-green-500">Dashboard</router-link>
